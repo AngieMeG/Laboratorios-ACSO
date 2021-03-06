@@ -1,0 +1,9 @@
+CHIP TwoC{
+	IN ah[15], al[15];
+	OUT sh[15], sl[15];
+
+	PARTS:
+	Not15(in = ah, out = sh);
+	Not15(in = al, out = Nal);
+	Inc15(in = Nal, out = sl);
+}

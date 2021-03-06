@@ -1,0 +1,9 @@
+CHIP Suma{
+	IN ah[15], al[15], bh[15], bl[15];
+	OUT sh[15], sh[15];
+	
+	PARTS:
+	Suma15(a = al, b = bl, out = sl, carry = lleva0);
+	Suma15(a = ah, b = bh, out = tsh, carry = lleva1);
+	Suma1(a = tsh, b = lleva0, out = sh);
+}

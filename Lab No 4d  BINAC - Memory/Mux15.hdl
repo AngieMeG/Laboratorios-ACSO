@@ -1,0 +1,16 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: tools/builtIn/Mux16.hdl
+
+/**
+ * 15 bit multiplexor. If sel == 1 then out = b else out = a.
+ */
+
+CHIP Mux15 {
+
+    IN  a[15], b[15], sel;
+    OUT out[15];
+
+    BUILTIN Mux;
+}

@@ -1,0 +1,11 @@
+CHIP Bit{
+	IN a, w;
+	OUT out;
+
+	PARTS:
+	Not(in = w, out = nw);
+	And(a = a, b = w, out = aw);
+	And(a = Dout, b = nw, out = Dnw);
+	Or(a = aw, b = Dnw, out = Data);
+	DFF(in = Data, out = out, out = Dout);
+}

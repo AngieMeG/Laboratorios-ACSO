@@ -1,0 +1,49 @@
+CHIP Ans{
+	IN addr[15], inh[15], inl[15];
+	OUT sh[15], sl[15];
+
+	PARTS:
+	Clear(out = B0);
+	Inc15(in = B0, out = B1);
+	ShiftL(ah = B0, al = B1, sh = ah1, sl = al1);
+	ShiftL(ah = ah1, al = al1, sh = ah2, sl = al2);
+	ShiftL(ah = ah2, al = al2, sh = ah3, sl = al3);
+	ShiftL(ah = ah3, al = al3, sh = ah4, sl = al4);
+	ShiftL(ah = ah4, al = al4, sh = ah5, sl = al5);
+	ShiftL(ah = ah5, al = al5, sh = ah6, sl = al6);
+	ShiftL(ah = ah6, al = al6, sh = ah7, sl = al7);
+	ShiftL(ah = ah7, al = al7, sh = ah8, sl = al8);
+	ShiftL(ah = ah8, al = al8, sh = ah9, sl = al9);
+	ShiftL(ah = ah9, al = al9, sh = ah10, sl = al10);
+	ShiftL(ah = ah10, al = al10, sh = ah11, sl = al11);
+	ShiftL(ah = ah11, al = al11, sh = ah12, sl = al12);
+	ShiftL(ah = ah12, al = al12, sh = ah13, sl = al13);
+	ShiftL(ah = ah13, al = al13, sh = ah14, sl = al14);
+	ShiftL(ah = ah14, al = al14, sh = bh0, sl = bl0);
+	ShiftL(ah = bh0, al = bh0, sh = bh1, sl = bl1);
+	ShiftL(ah = bh1, al = bl1, sh = bh2, sl = bl2);
+	ShiftL(ah = bh2, al = bl2, sh = bh3, sl = bl3);
+	ShiftL(ah = bh3, al = bl3, sh = bh4, sl = bl4);
+	ShiftL(ah = bh4, al = bl4, sh = bh5, sl = bl5);
+	ShiftL(ah = bh5, al = bl5, sh = bh6, sl = bl6);
+	ShiftL(ah = bh6, al = bl6, sh = bh7, sl = bl7);
+	ShiftL(ah = bh7, al = bl7, sh = bh8, sl = bl8);
+	ShiftL(ah = bh8, al = bl8, sh = bh9, sl = bl9);
+	ShiftL(ah = bh9, al = bl9, sh = bh10, sl = bl10);
+	ShiftL(ah = bh10, al = bl10, sh = bh11, sl = bl11);
+	ShiftL(ah = bh11, al = bl11, sh = bh12, sl = bl12);
+	ShiftL(ah = bh12, al = bl12, sh = bh13, sl = bl13);
+	ShiftL(ah = bh13, al = bl13, sh = bh14, sl = bl14);
+	
+	Mux16Way15(a = B0,  b = ah1, c = ah2, d = ah3, e = ah4, f = ah5, g = ah6, h = ah7, i = ah8, j = ah9, k = ah10, l = ah11, m = ah12, n = ah13, o = ah14, p = B0, sel[0] = addr[0], sel[1] = addr[1], sel[2] = addr[2], sel[3] = addr[3], out = outh1);
+	Mux16Way15(a = B1,  b = al1, c = al2, d = al3, e = al4, f = al5, g = al6, h = al7, i = al8, j = al9, k = al10, l = al11, m = al12, n = al13, o = al14, p = B0, sel[0] = addr[0], sel[1] = addr[1], sel[2] = addr[2], sel[3] = addr[3], out = outl1);
+	Mux16Way15(a = bh0, b = bh1, c = bh2, d = bh3, e = bh4, f = bh5, g = bh6, h = bh7, i = bh8, j = bh9, k = bh10, l = bh11, m = bh12, n = bh13, o = bh14, p = B0, sel[0] = addr[0], sel[1] = addr[1], sel[2] = addr[2], sel[3] = addr[3], out = outh2);
+	Mux16Way15(a = bl0, b = bl1, c = bl2, d = bl3, e = bl4, f = bl5, g = bl6, h = bl7, i = bl8, j = bl9, k = bl10, l = bl11, m = bl12, n = bl13, o = bl14, p = B0, sel[0] = addr[0], sel[1] = addr[1], sel[2] = addr[2], sel[3] = addr[3], out = outl2);
+	
+	Mux15(a = outh1, b = outh2, sel = addr[4], out = sh1);
+	Mux15(a = outl1, b = outl2, sel = addr[4], out = sl1);
+	Subt31(ah = sh1, al = sl1, bh = B0, bl = B1, sh = fh, sl = fl);
+	And15(a = inh, b = fh, out = sh);
+	And15(a = inl, b = fl, out = sl);
+	
+}

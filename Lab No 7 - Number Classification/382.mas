@@ -1,0 +1,119 @@
+while,		load		temp
+		add		one
+		store		temp
+		load		n
+		subt		temp
+		skipcond	000
+		jump		body
+		jump		endwhile
+
+body,		load		temp
+		store		k
+		store		i
+		jns		divs
+		subt		temp
+		skipcond	400
+		jump		other
+		jump		perf
+
+perf,		load		perfect
+		add		one
+		store		perfect
+		jump		while
+
+other,		skipcond	000
+		jump		abun
+		load		deficient
+		add		one
+		store		deficient
+		jump		while
+
+abun,		load		abundant
+		add		one
+		store		abundant
+		jump		while
+		
+
+endwhile,	load		deficient
+		output
+		load		perfect
+		output
+		load		abundant
+		output
+		halt
+
+n,		dec		20
+temp,		dec		0
+cero,		dec		0
+perfect,	dec		0
+abundant,	dec		0
+deficient,	dec		0
+
+//divs(k,i,sum): return sum of k's improper divisors
+//	while(i--)
+//	  if k % i == 0: sum += i
+
+divs,		dec		0
+		clear
+		load		cero
+		store 		sum
+	
+whiled,		load		i
+		subt		one
+		store		i
+		skipcond	400
+		jump		bodyd
+		jump		endwhiled
+
+bodyd,		load		k
+		store		p
+		load		i
+		store		q
+		jns		mod
+		skipcond	400
+		jump		whiled
+		load		i
+		add		sum
+		store		sum	
+		jump		whiled
+
+endwhiled,	load		sum
+		jumpi		divs
+
+		
+
+k,		dec		0
+sum,		dec		0
+i,		dec		0
+one,		dec		1
+
+
+/ mod (p, q) return residue r / s
+/    while (p >= q)
+/	p -= q
+/    endwhile
+/    return p
+
+mod,		dec		0
+		clear
+
+whilem,		load		p
+		subt		q
+		skipcond	800
+		jump		samem
+		jump		bodym
+
+samem,		skipcond	400
+		jump		endwhilem
+		jump 		bodym
+
+bodym,		load		p
+		subt		q
+		store		p
+		jump		whilem
+
+endwhilem,	load		p
+		jumpi		mod
+
+p,		dec		0
+q,		dec		0

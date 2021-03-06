@@ -1,0 +1,372 @@
+     Assembly listing for: lab09.mas
+                Assembled: Wed Apr 22 10:41:29 COT 2020
+
+         |           ORG 100             
+100 5000 |           INPUT              /recibe x1
+101 2185 |           STORE x1            
+102 5000 |           INPUT              /recibe y1
+103 2188 |           STORE y1            
+104 5000 |           INPUT              /recibe x2
+105 2186 |           STORE x2            
+106 5000 |           INPUT              /recibe y2
+107 2189 |           STORE y2            
+108 5000 |           INPUT              /recibe x3
+109 2187 |           STORE x3            
+10A 5000 |           INPUT              /recibe y3
+10B 218A |           STORE y3            
+10C 1185 |           LOAD x1             
+10D 4186 |           SUBT x2             
+10E 218B |           STORE x11           
+10F 1185 |           LOAD x1             
+110 4187 |           SUBT x3             
+111 218C |           STORE x12           
+112 1186 |           LOAD x2             
+113 4187 |           SUBT x3             
+114 218D |           STORE x13           
+115 1188 |           LOAD y1             
+116 4189 |           SUBT y2             
+117 218E |           STORE y11           
+118 1188 |           LOAD y1             
+119 418A |           SUBT y3             
+11A 218F |           STORE y12           
+11B 1189 |           LOAD y2             
+11C 418A |           SUBT y3             
+11D 2190 |           STORE y13           
+         |                              
+         |                              /Conversion a positivo
+         |                              
+11E 118B |           LOAD x11            
+11F 8800 |           SKIPCOND 800        
+120 9122 |           JUMP sx11           
+121 9125 |           JUMP sx12           
+122 1183 |  sx11     LOAD zero           
+123 418B |           SUBT x11            
+124 218B |           STORE x11           
+125 118E |  sx12     LOAD y11            
+126 8800 |           SKIPCOND 800        
+127 9129 |           JUMP sy11           
+128 912C |           JUMP sy12           
+129 1183 |  sy11     LOAD zero           
+12A 418E |           SUBT y11            
+12B 218E |           STORE y11           
+12C 118C |  sy12     LOAD x12            
+12D 8800 |           SKIPCOND 800        
+12E 9130 |           JUMP sx21           
+12F 9133 |           JUMP sx22           
+130 1183 |  sx21     LOAD zero           
+131 418C |           SUBT x12            
+132 218C |           STORE x12           
+133 118F |  sx22     LOAD y12            
+134 8800 |           SKIPCOND 800        
+135 9137 |           JUMP sy21           
+136 913A |           JUMP sy22           
+137 1183 |  sy21     LOAD zero           
+138 418F |           SUBT y12            
+139 218F |           STORE y12           
+13A 118D |  sy22     LOAD x13            
+13B 8800 |           SKIPCOND 800        
+13C 913E |           JUMP sx31           
+13D 9141 |           JUMP sx32           
+13E 1183 |  sx31     LOAD zero           
+13F 418D |           SUBT x13            
+140 218D |           STORE x13           
+141 1190 |  sx32     LOAD y13            
+142 8800 |           SKIPCOND 800        
+143 9145 |           JUMP sy31           
+144 9148 |           JUMP sy32           
+145 1183 |  sy31     LOAD zero           
+146 4190 |           SUBT y13            
+147 2190 |           STORE y13           
+         |                              
+         |                              /Cuadrados de componentes
+         |                              
+148 118B |  sy32     LOAD x11            
+149 21FF |           STORE pM            
+14A 2200 |           STORE qM            
+14B 01EF |           JNS mult            
+14C 218B |           STORE x11           
+14D 118E |           LOAD y11            
+14E 21FF |           STORE pM            
+14F 2200 |           STORE qM            
+150 01EF |           JNS mult            
+151 218E |           STORE y11           
+152 118C |           LOAD x12            
+153 21FF |           STORE pM            
+154 2200 |           STORE qM            
+155 01EF |           JNS mult            
+156 218C |           STORE x12           
+157 118F |           LOAD y12            
+158 21FF |           STORE pM            
+159 2200 |           STORE qM            
+15A 01EF |           JNS mult            
+15B 218F |           STORE y12           
+15C 118D |           LOAD x13            
+15D 21FF |           STORE pM            
+15E 2200 |           STORE qM            
+15F 01EF |           JNS mult            
+160 218D |           STORE x13           
+161 1190 |           LOAD y13            
+162 21FF |           STORE pM            
+163 2200 |           STORE qM            
+164 01EF |           JNS mult            
+165 2190 |           STORE y13           
+         |                              
+         |                              /Cuadrados de los lados
+         |                              
+166 118B |           LOAD x11            
+167 318E |           ADD y11             
+168 2191 |           STORE s1            
+169 118C |           LOAD x12            
+16A 318F |           ADD y12             
+16B 2192 |           STORE s2            
+16C 118D |           LOAD x13            
+16D 3190 |           ADD y13             
+16E 2193 |           STORE s3            
+         |                              
+         |                              /medida de los lados
+         |                              
+16F 1191 |           LOAD s1             
+170 2194 |           STORE x             
+171 21B1 |           STORE br            
+172 0195 |           JNS root            
+173 2191 |           STORE s1            
+         |                              
+174 1192 |           LOAD s2             
+175 2194 |           STORE x             
+176 21B1 |           STORE br            
+177 0195 |           JNS root            
+178 2192 |           STORE s2            
+         |                              
+179 1193 |           LOAD s3             
+17A 2194 |           STORE x             
+17B 21B1 |           STORE br            
+17C 0195 |           JNS root            
+17D 2193 |           STORE s3            
+         |                              /Perimetro
+17E 1191 |           LOAD s1             
+17F 3192 |           ADD s2              
+180 3193 |           ADD s3              
+181 6000 |           OUTPUT              
+182 7000 |           HALT                
+183 0000 |  zero     DEC 0               
+184 0001 |  one      DEC 1               
+185 0000 |  x1       DEC 0               
+186 0000 |  x2       DEC 0               
+187 0000 |  x3       DEC 0               
+188 0000 |  y1       DEC 0               
+189 0000 |  y2       DEC 0               
+18A 0000 |  y3       DEC 0               
+18B 0000 |  x11      DEC 0               
+18C 0000 |  x12      DEC 0               
+18D 0000 |  x13      DEC 0               
+18E 0000 |  y11      DEC 0               
+18F 0000 |  y12      DEC 0               
+190 0000 |  y13      DEC 0               
+191 0000 |  s1       DEC 0               
+192 0000 |  s2       DEC 0               
+193 0000 |  s3       DEC 0               
+194 0000 |  x        DEC 0               
+         |                              
+         |                              /root
+195 0000 |  root     DEC 0               
+196 A000 |           CLEAR               
+197 21AF |           STORE auxr          
+198 3184 |           ADD one             
+199 21B0 |           STORE hr            
+19A 11B1 |  loopR    LOAD br             
+19B 41B0 |           SUBT hr             
+19C 4184 |           SUBT one            
+19D 8800 |           SKIPCOND 800        
+19E 91AD |           JUMP endR           
+19F 3184 |           ADD one             
+1A0 21AF |           STORE auxr          
+1A1 11B1 |           LOAD br             
+1A2 31B0 |           ADD hr              
+1A3 21C9 |           STORE nDt           
+1A4 01B2 |           JNS divt            
+1A5 21B1 |           STORE br            
+1A6 1194 |           LOAD x              
+1A7 21ED |           STORE xd            
+1A8 11B1 |           LOAD br             
+1A9 21EE |           STORE bd            
+1AA 01DD |           JNS div             
+1AB 21B0 |           STORE hr            
+1AC 919A |           JUMP loopR          
+1AD 11B1 |  endR     LOAD br             
+1AE C195 |           JUMPI root          
+1AF 0000 |  auxr     DEC 0               
+1B0 0000 |  hr       DEC 0               
+1B1 0000 |  br       DEC 0               
+         |                              
+         |                              /divt
+1B2 0000 |  divt     DEC 0               
+1B3 A000 |           CLEAR               
+1B4 21C8 |           STORE rtaDt         
+1B5 11C9 |  loopDt   LOAD nDt            
+1B6 4184 |           SUBT one            
+1B7 8800 |           SKIPCOND 800        
+1B8 91C6 |           JUMP endDt          
+1B9 11C9 |           LOAD nDt            
+1BA 21DC |           STORE np            
+1BB 01CB |           JNS pow             
+1BC 21CA |           STORE mDt           
+1BD 11C9 |           LOAD nDt            
+1BE 41CA |           SUBT mDt            
+1BF 21C9 |           STORE nDt           
+1C0 31C8 |           ADD rtaDt           
+1C1 21C8 |           STORE rtaDt         
+1C2 11CA |           LOAD mDt            
+1C3 41C9 |           SUBT nDt            
+1C4 21C9 |           STORE nDt           
+1C5 91B5 |           JUMP loopDt         
+1C6 11C8 |  endDt    LOAD rtaDt          
+1C7 C1B2 |           JUMPI divt          
+1C8 0000 |  rtaDt    DEC 0               
+1C9 0000 |  nDt      DEC 0               
+1CA 0000 |  mDt      DEC 0               
+         |                              
+         |                              /pow
+1CB 0000 |  pow      DEC 0               
+1CC A000 |           CLEAR               
+1CD 3184 |           ADD one             
+1CE 21DA |           STORE auxp          
+1CF 21DB |  loopP    STORE mp            
+1D0 41DC |           SUBT np             
+1D1 8000 |           SKIPCOND 000        
+1D2 91D7 |           JUMP endP           
+1D3 11DB |           LOAD mp             
+1D4 21DA |           STORE auxp          
+1D5 31DB |           ADD mp              
+1D6 91CF |           JUMP loopP          
+1D7 11DB |  endP     LOAD mp             
+1D8 41DA |           SUBT auxp           
+1D9 C1CB |           JUMPI pow           
+1DA 0000 |  auxp     DEC 0               
+1DB 0000 |  mp       DEC 0               
+1DC 0000 |  np       DEC 0               
+         |                              
+         |                              /div
+1DD 0000 |  div      DEC 0               
+1DE A000 |           CLEAR               
+1DF 21EC |           STORE cd            
+1E0 11ED |  condD    LOAD xd             
+1E1 41EE |           SUBT bd             
+1E2 8000 |           SKIPCOND 000        
+1E3 91E5 |           JUMP loopD          
+1E4 91EA |           JUMP endD           
+1E5 21ED |  loopD    STORE xd            
+1E6 11EC |           LOAD cd             
+1E7 3184 |           ADD one             
+1E8 21EC |           STORE cd            
+1E9 91E0 |           JUMP condD          
+1EA 11EC |  endD     LOAD cd             
+1EB C1DD |           JUMPI div           
+1EC 0000 |  cd       DEC 0               
+1ED 0000 |  xd       DEC 0               
+1EE 0000 |  bd       DEC 0               
+         |                              
+         |                              /mult
+1EF 0000 |  mult     DEC 0               
+1F0 A000 |           CLEAR               
+1F1 2201 |           STORE mM            
+1F2 2202 |           STORE iM            
+1F3 4200 |  while    SUBT qM             
+1F4 8000 |           SKIPCOND 000        
+1F5 91FD |           JUMP endwhile       
+1F6 1201 |           LOAD mM             
+1F7 31FF |           ADD pM              
+1F8 2201 |           STORE mM            
+1F9 1202 |           LOAD iM             
+1FA 3184 |           ADD one             
+1FB 2202 |           STORE iM            
+1FC 91F3 |           JUMP while          
+1FD 1201 |  endwhile LOAD mM             
+1FE C1EF |           JUMPI mult          
+1FF 0000 |  pM       DEC 0               
+200 0000 |  qM       DEC 0               
+201 0000 |  mM       DEC 0               
+202 0000 |  iM       DEC 0               
+
+Assembly successful.
+
+         SYMBOL TABLE
+         ----------------------------------------------------
+          Symbol   | Defined | References 
+         ----------+---------+-------------------------------
+          auxp     |   1DA   | 1CE, 1D4, 1D8
+          auxr     |   1AF   | 197, 1A0
+          bd       |   1EE   | 1A9, 1E1
+          br       |   1B1   | 171, 176, 17B, 19A, 1A1, 1A5, 
+                   |         | 1A8, 1AD
+          cd       |   1EC   | 1DF, 1E6, 1E8, 1EA
+          condD    |   1E0   | 1E9
+          div      |   1DD   | 1AA, 1EB
+          divt     |   1B2   | 1A4, 1C7
+          endD     |   1EA   | 1E4
+          endDt    |   1C6   | 1B8
+          endP     |   1D7   | 1D2
+          endR     |   1AD   | 19E
+          endwhile |   1FD   | 1F5
+          hr       |   1B0   | 199, 19B, 1A2, 1AB
+          iM       |   202   | 1F2, 1F9, 1FB
+          loopD    |   1E5   | 1E3
+          loopDt   |   1B5   | 1C5
+          loopP    |   1CF   | 1D6
+          loopR    |   19A   | 1AC
+          mDt      |   1CA   | 1BC, 1BE, 1C2
+          mM       |   201   | 1F1, 1F6, 1F8, 1FD
+          mp       |   1DB   | 1CF, 1D3, 1D5, 1D7
+          mult     |   1EF   | 14B, 150, 155, 15A, 15F, 164, 
+                   |         | 1FE
+          nDt      |   1C9   | 1A3, 1B5, 1B9, 1BD, 1BF, 1C3, 
+                   |         | 1C4
+          np       |   1DC   | 1BA, 1D0
+          one      |   184   | 198, 19C, 19F, 1B6, 1CD, 1E7, 
+                   |         | 1FA
+          pM       |   1FF   | 149, 14E, 153, 158, 15D, 162, 
+                   |         | 1F7
+          pow      |   1CB   | 1BB, 1D9
+          qM       |   200   | 14A, 14F, 154, 159, 15E, 163, 
+                   |         | 1F3
+          root     |   195   | 172, 177, 17C, 1AE
+          rtaDt    |   1C8   | 1B4, 1C0, 1C1, 1C6
+          s1       |   191   | 168, 16F, 173, 17E
+          s2       |   192   | 16B, 174, 178, 17F
+          s3       |   193   | 16E, 179, 17D, 180
+          sx11     |   122   | 120
+          sx12     |   125   | 121
+          sx21     |   130   | 12E
+          sx22     |   133   | 12F
+          sx31     |   13E   | 13C
+          sx32     |   141   | 13D
+          sy11     |   129   | 127
+          sy12     |   12C   | 128
+          sy21     |   137   | 135
+          sy22     |   13A   | 136
+          sy31     |   145   | 143
+          sy32     |   148   | 144
+          while    |   1F3   | 1FC
+          x        |   194   | 170, 175, 17A, 1A6
+          x1       |   185   | 101, 10C, 10F
+          x11      |   18B   | 10E, 11E, 123, 124, 148, 14C, 
+                   |         | 166
+          x12      |   18C   | 111, 12C, 131, 132, 152, 156, 
+                   |         | 169
+          x13      |   18D   | 114, 13A, 13F, 140, 15C, 160, 
+                   |         | 16C
+          x2       |   186   | 105, 10D, 112
+          x3       |   187   | 109, 110, 113
+          xd       |   1ED   | 1A7, 1E0, 1E5
+          y1       |   188   | 103, 115, 118
+          y11      |   18E   | 117, 125, 12A, 12B, 14D, 151, 
+                   |         | 167
+          y12      |   18F   | 11A, 133, 138, 139, 157, 15B, 
+                   |         | 16A
+          y13      |   190   | 11D, 141, 146, 147, 161, 165, 
+                   |         | 16D
+          y2       |   189   | 107, 116, 11B
+          y3       |   18A   | 10B, 119, 11C
+          zero     |   183   | 122, 129, 130, 137, 13E, 145
+         ----------------------------------------------------
+
+

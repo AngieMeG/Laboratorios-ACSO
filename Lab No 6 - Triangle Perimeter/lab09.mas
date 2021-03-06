@@ -1,0 +1,285 @@
+		ORG		100	
+		input		/recibe x1
+		store		x1
+		input		/recibe y1
+		store		y1
+		input		/recibe x2
+		store		x2
+		input		/recibe y2
+		store		y2
+		input		/recibe x3
+		store		x3
+		input		/recibe y3
+		store		y3
+		load		x1
+		subt		x2
+		store		x11
+		load		x1
+		subt		x3
+		store		x12
+		load		x2
+		subt		x3
+		store		x13
+		load		y1
+		subt		y2
+		store		y11
+		load		y1
+		subt		y3
+		store		y12
+		load		y2
+		subt		y3
+		store		y13
+
+/Conversion a positivo
+
+		load		x11
+		skipcond	800		
+		jump		sx11
+		jump		sx12
+sx11,		load		zero
+		subt		x11
+		store		x11
+sx12,		load		y11
+		skipcond	800		
+		jump		sy11
+		jump		sy12
+sy11,		load		zero
+		subt		y11
+		store		y11
+sy12,		load		x12
+		skipcond	800		
+		jump		sx21
+		jump		sx22
+sx21,		load		zero
+		subt		x12
+		store		x12
+sx22,		load		y12
+		skipcond	800		
+		jump		sy21
+		jump		sy22
+sy21,		load		zero
+		subt		y12
+		store		y12
+sy22,		load		x13
+		skipcond	800		
+		jump		sx31
+		jump		sx32
+sx31,		load		zero
+		subt		x13
+		store		x13
+sx32,		load		y13
+		skipcond	800		
+		jump		sy31
+		jump		sy32
+sy31,		load		zero
+		subt		y13
+		store 		y13	
+
+/Cuadrados de componentes
+
+sy32,		load		x11
+		store		pM
+		store		qM
+		jns		mult
+		store		x11
+		load		y11
+		store		pM
+		store		qM
+		jns		mult
+		store		y11
+		load		x12
+		store		pM
+		store		qM
+		jns		mult
+		store		x12
+		load		y12
+		store		pM
+		store		qM
+		jns		mult
+		store		y12
+		load		x13
+		store		pM
+		store		qM
+		jns		mult
+		store		x13
+		load		y13
+		store		pM
+		store		qM
+		jns		mult
+		store		y13
+
+/Cuadrados de los lados
+
+		load		x11
+		add		y11
+		store		s1
+		load		x12
+		add		y12
+		store		s2
+		load		x13
+		add		y13
+		store		s3
+
+/medida de los lados
+
+		load		s1
+		store		x
+		store		br
+		jns		root
+		store		s1
+
+		load		s2
+		store		x
+		store		br
+		jns		root
+		store		s2
+
+		load		s3
+		store		x
+		store		br
+		jns		root
+		store		s3
+/Perimetro
+		load		s1
+		add		s2
+		add		s3
+		output
+		halt
+zero,		dec		0
+one,		dec		1
+x1,		dec		0
+x2,		dec		0
+x3,		dec		0
+y1,		dec		0
+y2,		dec		0
+y3,		dec		0
+x11,		dec		0
+x12,		dec		0
+x13,		dec		0
+y11,		dec		0
+y12,		dec		0
+y13,		dec		0
+s1,		dec		0
+s2,		dec		0
+s3,		dec		0
+x,		dec		0
+
+/root
+root,		dec		0
+		clear
+		store		auxr
+		add		one
+		store		hr
+loopR,		load		br
+		subt		hr
+		subt		one
+		skipcond	800
+		jump		endR
+		add		one
+		store		auxr
+		load		br
+		add		hr
+		store		nDt
+		jns		divt
+		store		br
+		load		x
+		store		xd
+		load		br
+		store		bd
+		jns		div
+		store		hr
+		jump		loopR
+endR,		load		br
+		jumpi		root
+auxr,		dec		0
+hr,		dec		0
+br,		dec		0
+
+/divt
+divt,		dec		0
+		clear
+		store		rtaDt
+loopDt,		load		nDt
+		subt		one
+		skipcond	800
+		jump		endDt
+		load		nDt
+		store		np
+		jns		pow
+		store		mDt
+		load		nDt
+		subt		mDt
+		store		nDt
+		add		rtaDt
+		store		rtaDt
+		load		mDt
+		subt		nDt
+		store		nDt
+		jump		loopDt
+endDt,		load		rtaDt
+		jumpi		divt
+rtaDt,		dec		0
+nDt,		dec		0
+mDt,		dec		0
+
+/pow
+pow,		dec		0
+		clear
+		add		one
+		store		auxp
+loopP,		store		mp
+		subt		np
+		skipcond	000
+		jump		endP
+		load		mp
+		store		auxp
+		add		mp
+		jump		loopP
+endP,		load		mp
+		subt		auxp
+		jumpi		pow
+auxp,		dec		0
+mp,		dec		0
+np,		dec		0
+
+/div
+div,		dec		0
+		clear		
+		store		cd
+condD,		load		xd
+		subt		bd
+		skipcond	000
+		jump		loopD
+		jump		endD
+loopD,		store		xd
+		load		cd
+		add		one
+		store		cd
+		jump		condD
+endD,		load		cd
+		jumpi		div
+cd,		dec		0
+xd,		dec		0
+bd,		dec		0
+
+/mult
+mult,		dec		0
+		clear
+		store		mM
+		store		iM
+while,		subt		qM
+		skipcond	000
+		jump		endwhile
+		load		mM
+		add		pM
+		store		mM
+		load		iM
+		add		one
+		store		iM
+		jump		while
+endwhile,	load		mM
+		jumpi		mult
+pM,		dec		0
+qM,		dec		0
+mM,		dec		0
+iM,		dec		0

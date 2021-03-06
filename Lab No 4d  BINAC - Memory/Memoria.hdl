@@ -1,0 +1,44 @@
+CHIP Memoria{
+	IN inh[15],inl[15],a[9],w;
+	OUT outh[15],outl[15];
+
+	PARTS:
+	DMux16Way(in = true, sel[0] = a[5], sel[1] = a[6], sel[2] = a[7], sel[3] = a[8], a = r0, b = r1,c = r2, d = r3, e = r4, f = r5, g = r6, h = r7,i = r8, j = r9, k = r10, l = r11, m = r12, n = r13, o = r14, p = r15);
+
+	And(a = w, b = r0, out = w0);
+	And(a = w, b = r1, out = w1);
+	And(a = w, b = r2, out = w2);
+	And(a = w, b = r3, out = w3);
+	And(a = w, b = r4, out = w4);
+	And(a = w, b = r5, out = w5);
+	And(a = w, b = r6, out = w6);
+	And(a = w, b = r7, out = w7);	
+	And(a = w, b = r8, out = w8);
+	And(a = w, b = r9, out = w9);
+	And(a = w, b = r10, out = w10);
+	And(a = w, b = r11, out = w11);
+	And(a = w, b = r12, out = w12);
+	And(a = w, b = r13, out = w13);
+	And(a = w, b = r14, out = w14);
+	And(a = w, b = r15, out = w15);
+
+	RAM32(inh = inh, inl = inl, w = w0, sel = a[0..4], outh = oh0, outl = ol0);
+	RAM32(inh = inh, inl = inl, w = w0, sel = a[0..4], outh = oh1, outl = ol1);
+	RAM32(inh = inh, inl = inl, w = w0, sel = a[0..4], outh = oh2, outl = ol2);
+	RAM32(inh = inh, inl = inl, w = w0, sel = a[0..4], outh = oh3, outl = ol3);
+	RAM32(inh = inh, inl = inl, w = w0, sel = a[0..4], outh = oh4, outl = ol4);
+	RAM32(inh = inh, inl = inl, w = w0, sel = a[0..4], outh = oh5, outl = ol5);
+	RAM32(inh = inh, inl = inl, w = w0, sel = a[0..4], outh = oh6, outl = ol6);
+	RAM32(inh = inh, inl = inl, w = w0, sel = a[0..4], outh = oh7, outl = ol7);
+	RAM32(inh = inh, inl = inl, w = w0, sel = a[0..4], outh = oh8, outl = ol8);
+	RAM32(inh = inh, inl = inl, w = w0, sel = a[0..4], outh = oh9, outl = ol9);
+	RAM32(inh = inh, inl = inl, w = w0, sel = a[0..4], outh = oh10, outl = ol10);
+	RAM32(inh = inh, inl = inl, w = w0, sel = a[0..4], outh = oh11, outl = ol11);
+	RAM32(inh = inh, inl = inl, w = w0, sel = a[0..4], outh = oh12, outl = ol12);
+	RAM32(inh = inh, inl = inl, w = w0, sel = a[0..4], outh = oh13, outl = ol13);
+	RAM32(inh = inh, inl = inl, w = w0, sel = a[0..4], outh = oh14, outl = ol14);
+	RAM32(inh = inh, inl = inl, w = w0, sel = a[0..4], outh = oh15, outl = ol15);
+
+	Mux16Way15(a = oh0, b = oh1, c = oh2, d = oh3, e = oh4, f = oh5, g = oh6, h = oh7, i = oh8, j = oh9, k = oh10, l = oh11, m = oh12,n = oh13, o = oh14, p = oh15, sel = a[5..8], out = outh);
+	Mux16Way15(a = ol0, b = ol1, c = ol2, d = ol3, e = ol4, f = ol5, g = ol6, h = ol7, i = ol8, j = ol9, k = ol10, l = ol11, m = ol12,n = ol13, o = ol14, p = ol15, sel = a[5..8], out = outl);
+}

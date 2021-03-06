@@ -1,0 +1,11 @@
+/* Se realiza la resta a-b */
+CHIP resta {
+	IN ah[15], al[15], bh[15], bl[15];
+	OUT sh[15], sl[15];
+	
+	PARTS:
+	complemento(al = bl, ah = bh, sh = nbh, sl = nbl);
+	Suma15 (a = al, b = nbl, out = sl, carry = lleva0);
+	Suma15 (a = ah, b = nbh, out = msh, carry = lleva1);
+	Suma1 (a = msh, b = lleva0, out = sh);
+}

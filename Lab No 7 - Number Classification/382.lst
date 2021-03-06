@@ -1,0 +1,159 @@
+     Assembly listing for: 382.mas
+                Assembled: Sat Apr 25 15:04:03 COT 2020
+
+000 1026 |  while     LOAD temp            
+001 3045 |            ADD one              
+002 2026 |            STORE temp           
+003 1025 |            LOAD n               
+004 4026 |            SUBT temp            
+005 8000 |            SKIPCOND 000         
+006 9008 |            JUMP body            
+007 901E |            JUMP endwhile        
+         |                                
+008 1026 |  body      LOAD temp            
+009 2042 |            STORE k              
+00A 2044 |            STORE i              
+00B 002B |            JNS divs             
+00C 4026 |            SUBT temp            
+00D 8400 |            SKIPCOND 400         
+00E 9014 |            JUMP other           
+00F 9010 |            JUMP perf            
+         |                                
+010 1028 |  perf      LOAD perfect         
+011 3045 |            ADD one              
+012 2028 |            STORE perfect        
+013 9000 |            JUMP while           
+         |                                
+014 8000 |  other     SKIPCOND 000         
+015 901A |            JUMP abun            
+016 102A |            LOAD deficient       
+017 3045 |            ADD one              
+018 202A |            STORE deficient      
+019 9000 |            JUMP while           
+         |                                
+01A 1029 |  abun      LOAD abundant        
+01B 3045 |            ADD one              
+01C 2029 |            STORE abundant       
+01D 9000 |            JUMP while           
+         |                                		
+         |                                
+01E 102A |  endwhile  LOAD deficient       
+01F 6000 |            OUTPUT               
+020 1028 |            LOAD perfect         
+021 6000 |            OUTPUT               
+022 1029 |            LOAD abundant        
+023 6000 |            OUTPUT               
+024 7000 |            HALT                 
+         |                                
+025 0014 |  n         DEC 20               
+026 0000 |  temp      DEC 0                
+027 0000 |  cero      DEC 0                
+028 0000 |  perfect   DEC 0                
+029 0000 |  abundant  DEC 0                
+02A 0000 |  deficient DEC 0                
+         |                                
+         |                                //divs(k,i,sum): return sum of k's improper divisors
+         |                                //	while(i--)
+         |                                //	  if k % i == 0: sum += i
+         |                                
+02B 0000 |  divs      DEC 0                
+02C A000 |            CLEAR                
+02D 1027 |            LOAD cero            
+02E 2043 |            STORE sum            
+         |                                	
+02F 1044 |  whiled    LOAD i               
+030 4045 |            SUBT one             
+031 2044 |            STORE i              
+032 8400 |            SKIPCOND 400         
+033 9035 |            JUMP bodyd           
+034 9040 |            JUMP endwhiled       
+         |                                
+035 1042 |  bodyd     LOAD k               
+036 2056 |            STORE p              
+037 1044 |            LOAD i               
+038 2057 |            STORE q              
+039 0046 |            JNS mod              
+03A 8400 |            SKIPCOND 400         
+03B 902F |            JUMP whiled          
+03C 1044 |            LOAD i               
+03D 3043 |            ADD sum              
+03E 2043 |            STORE sum            
+03F 902F |            JUMP whiled          
+         |                                
+040 1043 |  endwhiled LOAD sum             
+041 C02B |            JUMPI divs           
+         |                                
+         |                                		
+         |                                
+042 0000 |  k         DEC 0                
+043 0000 |  sum       DEC 0                
+044 0000 |  i         DEC 0                
+045 0001 |  one       DEC 1                
+         |                                
+         |                                
+         |                                / mod (p, q) return residue r / s
+         |                                /    while (p >= q)
+         |                                /	p -= q
+         |                                /    endwhile
+         |                                /    return p
+         |                                
+046 0000 |  mod       DEC 0                
+047 A000 |            CLEAR                
+         |                                
+048 1056 |  whilem    LOAD p               
+049 4057 |            SUBT q               
+04A 8800 |            SKIPCOND 800         
+04B 904D |            JUMP samem           
+04C 9050 |            JUMP bodym           
+         |                                
+04D 8400 |  samem     SKIPCOND 400         
+04E 9054 |            JUMP endwhilem       
+04F 9050 |            JUMP bodym           
+         |                                
+050 1056 |  bodym     LOAD p               
+051 4057 |            SUBT q               
+052 2056 |            STORE p              
+053 9048 |            JUMP whilem          
+         |                                
+054 1056 |  endwhilem LOAD p               
+055 C046 |            JUMPI mod            
+         |                                
+056 0000 |  p         DEC 0                
+057 0000 |  q         DEC 0                
+
+Assembly successful.
+
+         SYMBOL TABLE
+         -----------------------------------------------------
+          Symbol    | Defined | References 
+         -----------+---------+-------------------------------
+          abun      |   01A   | 015
+          abundant  |   029   | 01A, 01C, 022
+          body      |   008   | 006
+          bodyd     |   035   | 033
+          bodym     |   050   | 04C, 04F
+          cero      |   027   | 02D
+          deficient |   02A   | 016, 018, 01E
+          divs      |   02B   | 00B, 041
+          endwhile  |   01E   | 007
+          endwhiled |   040   | 034
+          endwhilem |   054   | 04E
+          i         |   044   | 00A, 02F, 031, 037, 03C
+          k         |   042   | 009, 035
+          mod       |   046   | 039, 055
+          n         |   025   | 003
+          one       |   045   | 001, 011, 017, 01B, 030
+          other     |   014   | 00E
+          p         |   056   | 036, 048, 050, 052, 054
+          perf      |   010   | 00F
+          perfect   |   028   | 010, 012, 020
+          q         |   057   | 038, 049, 051
+          samem     |   04D   | 04B
+          sum       |   043   | 02E, 03D, 03E, 040
+          temp      |   026   | 000, 002, 004, 008, 00C
+          while     |   000   | 013, 019, 01D
+          whiled    |   02F   | 03B, 03F
+          whilem    |   048   | 053
+         -----------------------------------------------------
+
+

@@ -1,0 +1,10 @@
+CHIP PMult{
+	IN c,  bh[15],  bl[15],  ah[15],  al[15];
+	OUT outh[15],  outl[15],  fh[15],  fl[15];
+
+	PARTS:
+	Add31(ah = ah, al = al, bh = bh, bl = bl, sh = sh, sl = sl);
+	Mux15(a = ah, b = sh, sel = c, out = outh);
+	Mux15(a = al, b = sl, sel = c, out = outl);
+	ShiftL(ah = bh, al = bl, sh = fh, sl = fl);
+}

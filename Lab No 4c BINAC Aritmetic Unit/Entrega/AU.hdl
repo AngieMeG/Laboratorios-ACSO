@@ -1,0 +1,28 @@
+CHIP AU{
+	IN lh[15], ll[15], ah[15], al[15], mh[15], ml[15], ir[6];
+	OUT rh[15], rl[15];
+
+	PARTS:
+	
+	Clear(out = B0);
+	
+	Add31(ah = ah, al = al, bh = mh, bl = ml, sh = Ah, sl = Al);
+	Subt31(ah = ah, al = al, bh = mh, bl = ml, sh = Sh, sl = Sl);
+	Mult(ah = lh, al = ll, bh = mh, bl = ml, ph = Mh, pl = Ml);
+	Div(Mh = ah, Ml = al, Qih = Sh, Qil = ml, Qh = Dh, Ql = Dl);
+	Add31(ah = ah, al = al, bh = lh, bl = ll, sh = Fh, sl = Fl);
+	
+	Add31(ah = mh, al = ml, bh = B0, bl = B0, sh = Lh, sl = Ll, sh = Kh, sl = Kl);
+	ShiftL(ah = ah, al = al, sh = SLh, sl = SLl);
+	ShiftR(ah = ah, al = al, sh = SRh, sl = SRl);
+	
+	Mux16Way15(a = B0, b = al, c = Fl, d = Dl, e = ml, f = Al, g = B0, h = B0, i = Ml, j = ml, k = al, l = ml, m = al, n = Sl, o = B0, p = B0, sel[0] = ir[0], sel[1] = ir[1], sel[2] = ir[2], sel[3] = ir[3], out = outl1);
+	Mux16Way15(a = B0, b = ah, c = Fh, d = Dh, e = mh, f = Ah, g = B0, h = B0, i = Mh, j = mh, k = ah, l = mh, m = ah, n = Sh, o = B0, p = B0, sel[0] = ir[0], sel[1] = ir[1], sel[2] = ir[2], sel[3] = ir[3], out = outh1);
+	
+	Mux16Way15(a = ml, b = B0, c = SLl, d = SRl, e = B0, f = ml, g = B0, h = B0, i = B0, j = B0, k = B0, l = B0, m = B0, n = B0, o = B0, p = B0, sel[0] = ir[0], sel[1] = ir[1], sel[2] = ir[2], sel[3] = ir[3], out = outl2);
+	Mux16Way15(a = mh, b = B0, c = SLh, d = SRh, e = B0, f = mh, g = B0, h = B0, i = B0, j = B0, k = B0, l = B0, m = B0, n = B0, o = B0, p = B0, sel[0] = ir[0], sel[1] = ir[1], sel[2] = ir[2], sel[3] = ir[3], out = outh2);
+	
+	Mux15(a = outl1, b = outl2, sel = ir[4], out = rl);
+	Mux15(a = outh1, b = outh2, sel = ir[4], out = rh);
+	
+}

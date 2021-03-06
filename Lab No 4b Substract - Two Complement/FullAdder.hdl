@@ -1,0 +1,13 @@
+CHIP FullAdder{
+	IN Cin,a,b;
+	OUT Cout,sum;
+
+	PARTS:
+	Xor(a = a, b = b, out = aXb);
+	Xor(a = Cin, b = aXb, out = sum);
+	
+	And(a = a, b = b, out = aYb);
+	Or(a = a, b = b, out = aOb);
+	And(a = Cin, b = aOb, out = r1);
+	Or(a = aYb, b = r1, out = Cout);
+}

@@ -1,0 +1,31 @@
+ --------------------
+ Symbol    | Location
+ ----------+---------
+ abun      |   01A
+ abundant  |   029
+ body      |   008
+ bodyd     |   035
+ bodym     |   050
+ cero      |   027
+ deficient |   02A
+ divs      |   02B
+ endwhile  |   01E
+ endwhiled |   040
+ endwhilem |   054
+ i         |   044
+ k         |   042
+ mod       |   046
+ n         |   025
+ one       |   045
+ other     |   014
+ p         |   056
+ perf      |   010
+ perfect   |   028
+ q         |   057
+ samem     |   04D
+ sum       |   043
+ temp      |   026
+ while     |   000
+ whiled    |   02F
+ whilem    |   048
+

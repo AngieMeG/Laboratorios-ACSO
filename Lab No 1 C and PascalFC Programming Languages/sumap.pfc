@@ -1,0 +1,9 @@
+program sumap;
+var
+	a : Integer;
+	b : Integer;
+begin
+	writeln('1. Suma de dos numeros.');
+	read(a,b);
+	writeln('Respuesta = ',a+b);
+end.

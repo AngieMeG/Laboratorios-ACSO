@@ -1,0 +1,16 @@
+program maximop;
+
+var
+	a : Real;
+	b : Real;
+begin
+	writeln('2. Maximo de dos numeros.');
+	read(a,b);
+	if (a>b) then
+		begin
+			writeln('Respuesta = ',a:00:02);
+		end
+	else begin
+		writeln('Respuesta = ',b:00:02);
+	end
+end.

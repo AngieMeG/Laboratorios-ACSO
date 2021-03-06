@@ -1,0 +1,90 @@
+     Assembly listing for: lab05.mas
+                Assembled: Wed Mar 18 10:58:40 COT 2020
+
+         |           ORG 100             
+100 A000 |           CLEAR               
+101 112B |           LOAD x              
+102 212E |           STORE var           
+103 5000 |           INPUT               
+104 2133 |           STORE a             
+105 212D |           STORE cont          
+         |                              
+106 112D |  while    LOAD cont           
+107 8400 |           SKIPCOND 400        
+108 910A |           JUMP body           
+109 9111 |           JUMP endwhile       
+         |                              
+10A 1132 |  body     LOAD ciclo          
+10B 312E |           ADD var             
+10C 2132 |           STORE ciclo         
+10D 112D |           LOAD cont           
+10E 412F |           SUBT uno            
+10F 212D |           STORE cont          
+110 9106 |           JUMP while          
+         |                              	
+         |                              
+111 1132 |  endwhile LOAD ciclo          
+112 212C |           STORE res           
+113 1131 |           LOAD cero           
+114 2132 |           STORE ciclo         
+115 1130 |           LOAD ope            
+116 412F |           SUBT uno            
+117 2130 |           STORE ope           
+118 412F |           SUBT uno            
+119 8400 |           SKIPCOND 400        
+11A 9124 |           JUMP pc             
+11B 911C |           JUMP pb             
+11C 5000 |  pb       INPUT               
+11D 2134 |           STORE b             
+11E 312C |           ADD res             
+11F 212C |           STORE res           
+120 212E |           STORE var           
+121 112B |           LOAD x              
+122 212D |           STORE cont          
+123 9106 |           JUMP while          
+         |                              
+124 112C |  pc       LOAD res            
+125 5000 |           INPUT               
+126 2135 |           STORE c             
+127 312C |           ADD res             
+128 212C |           STORE res           
+129 6000 |           OUTPUT              
+12A 7000 |           HALT                
+         |                              
+12B 000A |  x        DEC 10              
+12C 0000 |  res      DEC 0               
+12D 0000 |  cont     DEC 0               
+12E 0000 |  var      DEC 0               
+12F 0001 |  uno      DEC 1               
+130 0002 |  ope      DEC 2               
+131 0000 |  cero     DEC 0               
+132 0000 |  ciclo    DEC 0               
+133 0000 |  a        DEC 0               
+134 0000 |  b        DEC 0               
+135 0000 |  c        DEC 0               
+
+Assembly successful.
+
+         SYMBOL TABLE
+         ----------------------------------------------------
+          Symbol   | Defined | References 
+         ----------+---------+-------------------------------
+          a        |   133   | 104
+          b        |   134   | 11D
+          body     |   10A   | 108
+          c        |   135   | 126
+          cero     |   131   | 113
+          ciclo    |   132   | 10A, 10C, 111, 114
+          cont     |   12D   | 105, 106, 10D, 10F, 122
+          endwhile |   111   | 109
+          ope      |   130   | 115, 117
+          pb       |   11C   | 11B
+          pc       |   124   | 11A
+          res      |   12C   | 112, 11E, 11F, 124, 127, 128
+          uno      |   12F   | 10E, 116, 118
+          var      |   12E   | 102, 10B, 120
+          while    |   106   | 110, 123
+          x        |   12B   | 101, 121
+         ----------------------------------------------------
+
+

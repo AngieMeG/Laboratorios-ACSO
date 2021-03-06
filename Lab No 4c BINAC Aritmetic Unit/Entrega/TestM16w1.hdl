@@ -1,0 +1,7 @@
+CHIP TestM16w1{
+	IN a;
+	OUT out;
+
+	PARTS:
+	Mux16Way1(a = false, b = false, c = false, d = false, e = false, f = false, g = false, h = false, i = true, j = false, k = a, m = false, l = false, n = false, o = false, p = false, sel[0] = false, sel[1] = true, sel[2] = false, sel[3] = true, out = out);
+}

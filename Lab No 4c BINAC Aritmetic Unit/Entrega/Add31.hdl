@@ -1,0 +1,10 @@
+CHIP Add31{
+	IN ah[15], al[15], bh[15], bl[15];
+	OUT sh[15], sl[15];
+
+	PARTS:
+	Add15(a = al, b = bl, out = sl, carry = carry);
+	Add15(a = ah, b = bh, out = psh, carry = drop);
+	Inc15(in = psh, out = psh1, carry = drop2);
+	Mux15(a = psh, b = psh1, sel = carry, out = sh);
+}

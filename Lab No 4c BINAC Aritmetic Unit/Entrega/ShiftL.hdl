@@ -1,0 +1,36 @@
+CHIP ShiftL{
+	IN ah[15], al[15];
+	OUT sh[15], sl[15];
+
+	PARTS:
+	And(a = ah[13], b = true, out = sh[14]);
+	And(a = ah[12], b = true, out = sh[13]);
+	And(a = ah[11], b = true, out = sh[12]);
+	And(a = ah[10], b = true, out = sh[11]);
+	And(a = ah[9], b = true, out = sh[10]);
+	And(a = ah[8], b = true, out = sh[9]);
+	And(a = ah[7], b = true, out = sh[8]);
+	And(a = ah[6], b = true, out = sh[7]);
+	And(a = ah[5], b = true, out = sh[6]);
+	And(a = ah[4], b = true, out = sh[5]);
+	And(a = ah[3], b = true, out = sh[4]);
+	And(a = ah[2], b = true, out = sh[3]);
+	And(a = ah[1], b = true, out = sh[2]);
+	And(a = ah[0], b = true, out = sh[1]);
+	And(a = al[14], b = true, out = sh[0]);
+	And(a = al[13], b = true, out = sl[14]);
+	And(a = al[12], b = true, out = sl[13]);
+	And(a = al[11], b = true, out = sl[12]);
+	And(a = al[10], b = true, out = sl[11]);
+	And(a = al[9], b = true, out = sl[10]);
+	And(a = al[8], b = true, out = sl[9]);
+	And(a = al[7], b = true, out = sl[8]);
+	And(a = al[6], b = true, out = sl[7]);
+	And(a = al[5], b = true, out = sl[6]);
+	And(a = al[4], b = true, out = sl[5]);
+	And(a = al[3], b = true, out = sl[4]);
+	And(a = al[2], b = true, out = sl[3]);
+	And(a = al[1], b = true, out = sl[2]);
+	And(a = al[0], b = true, out = sl[1]);
+	And(a = al[0], b = false, out = sl[0]);
+}

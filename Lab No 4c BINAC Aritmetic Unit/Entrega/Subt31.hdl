@@ -1,0 +1,8 @@
+CHIP Subt31{
+	IN ah[15], al[15], bh[15], bl[15];
+	OUT sh[15], sl[15];
+
+	PARTS:
+	TwoC(ah = bh, al = bl, sh = Tbh, sl = Tbl);
+	Add31(ah = ah, bh = Tbh, al = al, bl = Tbl, sh = sh, sl = sl);
+}

@@ -1,0 +1,16 @@
+CHIP RAM32{
+	IN inh[15],inl[15],w,sel[5];
+	OUT outh[15],outl[15];
+
+	PARTS:
+	DMux(in = true, sel = sel[4], a = c1, b = c2);
+
+	And(a = w, b = c1, out = w1);
+	And(a = w, b = c2, out = w2);
+
+	RAM16(inh = inh, inl = inl, sel[0] = sel[0], sel[1] = sel[1], sel[2] = sel[2], sel[3] = sel[3], w = w1, outh = outh1, outl = outl1);
+	RAM16(inh = inh, inl = inl, sel[0] = sel[0], sel[1] = sel[1], sel[2] = sel[2], sel[3] = sel[3], w = w2, outh = outh2, outl = outl2);
+
+	Mux15(a = outh1, b = outh2, sel = sel[4], out = outh);
+	Mux15(a = outl1, b = outl2, sel = sel[4], out = outl);
+}

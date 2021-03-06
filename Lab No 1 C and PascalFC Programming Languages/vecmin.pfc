@@ -1,0 +1,20 @@
+program vecmin;
+
+var
+	vec : array [1..5] of real;
+	m : Real;
+	i : Integer;
+begin
+	writeln('3. Minimo de un vector (el vector es de longitud 5).');
+	for i := 1 to 5 do begin
+		read(vec[i]);
+	end;
+	m := vec[1];
+	for i := 1 to 5 do begin
+		if (m > vec[i]) then begin
+			m := vec[i];
+		end;
+	end;
+	writeln('Respuesta = ',m:00:02);
+	
+end. 

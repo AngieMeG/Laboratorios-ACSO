@@ -1,0 +1,64 @@
+CHIP Div{
+	IN Mh[15], Ml[15], Qih[15], Qil[15];
+	OUT Qh[15], Ql[15], Ah[15], Al[15];
+
+	PARTS:
+	//
+	Truncate(inh = Qih, inl = Qil, out = T, out[0] = T0, out[1] = T1, out[2] = T2, out[3] = T3, out[4] = T4);
+	Inc15(in = T, out = C);
+	
+	Clear(out = B0);
+	PDiv(Mh = Mh, Ml = Ml, Qih = Qih, Qil = Qil, Aih = B0, Ail = B0, Qh = Qh1, Ql = Ql1, Ah = Ah1, Al = Al1, T = C);
+	PDiv(Mh = Mh, Ml = Ml, Qih = Qh1, Qil = Ql1, Aih = Ah1, Ail = Al1, Qh = Qh2, Ql = Ql2, Ah = Ah2, Al = Al2, T = C);
+	PDiv(Mh = Mh, Ml = Ml, Qih = Qh2, Qil = Ql2, Aih = Ah2, Ail = Al2, Qh = Qh3, Ql = Ql3, Ah = Ah3, Al = Al3, T = C);
+	PDiv(Mh = Mh, Ml = Ml, Qih = Qh3, Qil = Ql3, Aih = Ah3, Ail = Al3, Qh = Qh4, Ql = Ql4, Ah = Ah4, Al = Al4, T = C);
+	PDiv(Mh = Mh, Ml = Ml, Qih = Qh4, Qil = Ql4, Aih = Ah4, Ail = Al4, Qh = Qh5, Ql = Ql5, Ah = Ah5, Al = Al5, T = C);
+	PDiv(Mh = Mh, Ml = Ml, Qih = Qh5, Qil = Ql5, Aih = Ah5, Ail = Al5, Qh = Qh6, Ql = Ql6, Ah = Ah6, Al = Al6, T = C);
+	PDiv(Mh = Mh, Ml = Ml, Qih = Qh6, Qil = Ql6, Aih = Ah6, Ail = Al6, Qh = Qh7, Ql = Ql7, Ah = Ah7, Al = Al7, T = C);
+	PDiv(Mh = Mh, Ml = Ml, Qih = Qh7, Qil = Ql7, Aih = Ah7, Ail = Al7, Qh = Qh8, Ql = Ql8, Ah = Ah8, Al = Al8, T = C);
+	PDiv(Mh = Mh, Ml = Ml, Qih = Qh8, Qil = Ql8, Aih = Ah8, Ail = Al8, Qh = Qh9, Ql = Ql9, Ah = Ah9, Al = Al9, T = C);
+	PDiv(Mh = Mh, Ml = Ml, Qih = Qh9, Qil = Ql9, Aih = Ah9, Ail = Al9, Qh = Qh10, Ql = Ql10, Ah = Ah10, Al = Al10, T = C);
+	PDiv(Mh = Mh, Ml = Ml, Qih = Qh10, Qil = Ql10, Aih = Ah10, Ail = Al10, Qh = Qh11, Ql = Ql11, Ah = Ah11, Al = Al11, T = C);
+	PDiv(Mh = Mh, Ml = Ml, Qih = Qh11, Qil = Ql11, Aih = Ah11, Ail = Al11, Qh = Qh12, Ql = Ql12, Ah = Ah12, Al = Al12, T = C);
+	PDiv(Mh = Mh, Ml = Ml, Qih = Qh12, Qil = Ql12, Aih = Ah12, Ail = Al12, Qh = Qh13, Ql = Ql13, Ah = Ah13, Al = Al13, T = C);
+	PDiv(Mh = Mh, Ml = Ml, Qih = Qh13, Qil = Ql13, Aih = Ah13, Ail = Al13, Qh = Qh14, Ql = Ql14, Ah = Ah14, Al = Al14, T = C);
+	PDiv(Mh = Mh, Ml = Ml, Qih = Qh14, Qil = Ql14, Aih = Ah14, Ail = Al14, Qh = Qh15, Ql = Ql15, Ah = Ah15, Al = Al15, T = C);
+	PDiv(Mh = Mh, Ml = Ml, Qih = Qh15, Qil = Ql15, Aih = Ah15, Ail = Al15, Qh = Qh16, Ql = Ql16, Ah = Ah16, Al = Al16, T = C);
+	PDiv(Mh = Mh, Ml = Ml, Qih = Qh16, Qil = Ql16, Aih = Ah16, Ail = Al16, Qh = Qh17, Ql = Ql17, Ah = Ah17, Al = Al17, T = C);
+	PDiv(Mh = Mh, Ml = Ml, Qih = Qh17, Qil = Ql17, Aih = Ah17, Ail = Al17, Qh = Qh18, Ql = Ql18, Ah = Ah18, Al = Al18, T = C);
+	PDiv(Mh = Mh, Ml = Ml, Qih = Qh18, Qil = Ql18, Aih = Ah18, Ail = Al18, Qh = Qh19, Ql = Ql19, Ah = Ah19, Al = Al19, T = C);
+	PDiv(Mh = Mh, Ml = Ml, Qih = Qh19, Qil = Ql19, Aih = Ah19, Ail = Al19, Qh = Qh20, Ql = Ql20, Ah = Ah20, Al = Al20, T = C);
+	PDiv(Mh = Mh, Ml = Ml, Qih = Qh20, Qil = Ql20, Aih = Ah20, Ail = Al20, Qh = Qh21, Ql = Ql21, Ah = Ah21, Al = Al21, T = C);
+	PDiv(Mh = Mh, Ml = Ml, Qih = Qh21, Qil = Ql21, Aih = Ah21, Ail = Al21, Qh = Qh22, Ql = Ql22, Ah = Ah22, Al = Al22, T = C);
+	PDiv(Mh = Mh, Ml = Ml, Qih = Qh22, Qil = Ql22, Aih = Ah22, Ail = Al22, Qh = Qh23, Ql = Ql23, Ah = Ah23, Al = Al23, T = C);
+	PDiv(Mh = Mh, Ml = Ml, Qih = Qh23, Qil = Ql23, Aih = Ah23, Ail = Al23, Qh = Qh24, Ql = Ql24, Ah = Ah24, Al = Al24, T = C);
+	PDiv(Mh = Mh, Ml = Ml, Qih = Qh24, Qil = Ql24, Aih = Ah24, Ail = Al24, Qh = Qh25, Ql = Ql25, Ah = Ah25, Al = Al25, T = C);
+	PDiv(Mh = Mh, Ml = Ml, Qih = Qh25, Qil = Ql25, Aih = Ah25, Ail = Al25, Qh = Qh26, Ql = Ql26, Ah = Ah26, Al = Al26, T = C);
+	PDiv(Mh = Mh, Ml = Ml, Qih = Qh26, Qil = Ql26, Aih = Ah26, Ail = Al26, Qh = Qh27, Ql = Ql27, Ah = Ah27, Al = Al27, T = C);
+	PDiv(Mh = Mh, Ml = Ml, Qih = Qh27, Qil = Ql27, Aih = Ah27, Ail = Al27, Qh = Qh28, Ql = Ql28, Ah = Ah28, Al = Al28, T = C);
+	PDiv(Mh = Mh, Ml = Ml, Qih = Qh28, Qil = Ql28, Aih = Ah28, Ail = Al28, Qh = Qh29, Ql = Ql29, Ah = Ah29, Al = Al29, T = C);
+	PDiv(Mh = Mh, Ml = Ml, Qih = Qh29, Qil = Ql29, Aih = Ah29, Ail = Al29, Qh = Qh30, Ql = Ql30, Ah = Ah30, Al = Al30, T = C);
+	PDiv(Mh = Mh, Ml = Ml, Qih = Qh30, Qil = Ql30, Aih = Ah30, Ail = Al30, Qh = Qh31, Ql = Ql31, Ah = Ah31, Al = Al31, T = C);
+	
+	Mux16Way15(a = Ah1, b = Ah2, c = Ah3, d = Ah4, e = Ah5, f = Ah6, g = Ah7, h = Ah8, i = Ah9, j = Ah10, k = Ah11, l = Ah12, m = Ah13, n = Ah14, o = Ah15, p = Ah16, sel[0] = T0, sel[1] = T1, sel[2] = T2, sel[3] = T3, out = ah1);
+	Mux16Way15(a = Ah17, b = Ah18, c = Ah19, d = Ah20, e = Ah21, f = Ah22, g = Ah23, h = Ah24, i = Ah25, j = Ah26, k = Ah27, l = Ah28, m = Ah29, n = Ah30, o = Ah31, sel[0] = T0, sel[1] = T1, sel[2] = T2, sel[3] = T3, out = ah2);
+	
+	Mux16Way15(a = Al1, b = Al2, c = Al3, d = Al4, e = Al5, f = Al6, g = Al7, h = Al8, i = Al9, j = Al10, k = Al11, l = Al12, m = Al13, n = Al14, o = Al15, p = Al16, sel[0] = T0, sel[1] = T1, sel[2] = T2, sel[3] = T3, out = al1);
+	Mux16Way15(a = Al17, b = Al18, c = Al19, d = Al20, e = Al21, f = Al22, g = Al23, h = Al24, i = Al25, j = Al26, k = Al27, l = Al28, m = Al29, n = Al30, o = Al31, sel[0] = T0, sel[1] = T1, sel[2] = T2, sel[3] = T3, out = al2);
+	
+	Mux16Way15(a = Qh1, b = Qh2, c = Qh3, d = Qh4, e = Qh5, f = Qh6, g = Qh7, h = Qh8, i = Qh9, j = Qh10, k = Qh11, l = Qh12, m = Qh13, n = Qh14, o = Qh15, p = Qh16, sel[0] = T0, sel[1] = T1, sel[2] = T2, sel[3] = T3, out = qh1);
+	Mux16Way15(a = Qh17, b = Qh18, c = Qh19, d = Qh20, e = Qh21, f = Qh22, g = Qh23, h = Qh24, i = Qh25, j = Qh26, k = Qh27, l = Qh28, m = Qh29, n = Qh30, o = Qh31, sel[0] = T0, sel[1] = T1, sel[2] = T2, sel[3] = T3, out = qh2);
+	
+	Mux16Way15(a = Ql1, b = Ql2, c = Ql3, d = Ql4, e = Ql5, f = Ql6, g = Ql7, h = Ql8, i = Ql9, j = Ql10, k = Ql11, l = Ql12, m = Ql13, n = Ql14, o = Ql15, p = Ql16, sel[0] = T0, sel[1] = T1, sel[2] = T2, sel[3] = T3, out = ql1);
+	Mux16Way15(a = Ql17, b = Ql18, c = Ql19, d = Ql20, e = Ql21, f = Ql22, g = Ql23, h = Ql24, i = Ql25, j = Ql26, k = Ql27, l = Ql28, m = Ql29, n = Ql30, o = Ql31, sel[0] = T0, sel[1] = T1, sel[2] = T2, sel[3] = T3, out = ql2);
+	
+	Mux15(a = ah1, b = ah2, sel = T4, out = ahf);
+	Mux15(a = al1, b = al2, sel = T4, out = alf);
+	Mux15(a = qh1, b = qh2, sel = T4, out = Qh);
+	Mux15(a = ql1, b = ql2, sel = T4, out = Ql);
+	Sign(ah = ahf, al = alf, T = T, out = c1);
+	Add31(ah = ahf, al = alf, bh = Mh, bl = Ml, sh = ahf1, sl = alf1);
+	Mux15(a = ahf, b = ahf1, sel = c1, out = Ahf);
+	Mux15(a = alf, b = alf1, sel = c1, out = Alf);
+	Ans(inh = Ahf, inl = Alf, addr = T, sh = Ah, sl = Al);
+}

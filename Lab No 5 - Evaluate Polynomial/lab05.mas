@@ -1,0 +1,61 @@
+	org 100
+	clear
+	load x
+	store var
+	input
+	store a
+	store cont
+
+while, 	load cont
+	skipcond 400
+	jump body
+	jump endwhile
+
+body,   load ciclo
+	add var
+	store ciclo
+	load cont
+	subt uno
+	store cont
+	jump while
+	
+
+endwhile, 	load ciclo
+		store res 
+		load cero
+		store ciclo
+		load ope
+		subt uno
+		store ope
+		subt uno
+		skipcond 400
+		jump pc
+		jump pb
+pb, 	input
+	store b
+	add res
+	store res
+	store var
+	load x
+	store cont
+	jump while
+
+pc,	load res
+	input
+	store c
+	add res
+	store res
+	output
+	halt
+
+x, dec 10
+res, dec 0
+cont, dec 0
+var, dec 0
+uno, dec 1
+ope, dec 2
+cero, dec 0
+ciclo, dec 0
+a, dec 0
+b, dec 0
+c, dec 0

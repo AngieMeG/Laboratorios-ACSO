@@ -1,0 +1,36 @@
+program sumavec;
+
+var
+	vec : array [1..5] of integer;
+	res : Integer;
+	i : Integer;
+
+procedure lectura; begin
+	for i := 1 to 5 do begin
+		read(vec[i]);
+	end;
+end;
+
+procedure suma; begin
+	for i := 1 to 5 do begin
+		res := res + vec[i];
+	end;
+end;
+
+procedure escribir; begin
+	for i := 1 to 5 do begin
+		write(vec[i],' ');
+		if (i < 5 ) then begin
+			write('+ ');
+		end;
+	end;
+end;
+
+begin
+	writeln('4. Suma de elementos del vector (El vector tiene longitud 5).');
+	lectura;
+	res := 0;
+	suma;
+	escribir;
+	writeln('= ',res);
+end.

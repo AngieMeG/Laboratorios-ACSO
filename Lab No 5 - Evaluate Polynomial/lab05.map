@@ -1,0 +1,20 @@
+ -------------------
+ Symbol   | Location
+ ---------+---------
+ a        |   133
+ b        |   134
+ body     |   10A
+ c        |   135
+ cero     |   131
+ ciclo    |   132
+ cont     |   12D
+ endwhile |   111
+ ope      |   130
+ pb       |   11C
+ pc       |   124
+ res      |   12C
+ uno      |   12F
+ var      |   12E
+ while    |   106
+ x        |   12B
+

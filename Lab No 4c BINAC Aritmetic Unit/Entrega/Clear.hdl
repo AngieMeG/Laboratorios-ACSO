@@ -1,0 +1,20 @@
+CHIP Clear{
+	OUT out[15];
+
+	PARTS:
+	And(b = false, out = out[0]);
+	And(b = false, out = out[1]);
+	And(b = false, out = out[2]);
+	And(b = false, out = out[3]);
+	And(b = false, out = out[4]);
+	And(b = false, out = out[5]);
+	And(b = false, out = out[6]);
+	And(b = false, out = out[7]);
+	And(b = false, out = out[8]);
+	And(b = false, out = out[9]);
+	And(b = false, out = out[10]);
+	And(b = false, out = out[11]);
+	And(b = false, out = out[12]);
+	And(b = false, out = out[13]);
+	And(b = false, out = out[14]);
+}

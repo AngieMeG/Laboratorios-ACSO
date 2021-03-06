@@ -1,0 +1,10 @@
+CHIP complemento{
+	IN ah[15], al[15];
+	OUT sh[15], sl[15];
+
+	PARTS:
+	Not15(in = ah, out = nah);
+	Not15(in = al, out = nal);
+	Suma1(a = nal, b =  true, out = sl, lleva = r1);
+	Suma1(a = nah, b = r1, out = sh);
+}

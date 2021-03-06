@@ -1,0 +1,39 @@
+CHIP Mult{
+	IN ah[15], al[15], bh[15], bl[15];
+	OUT ph[15], pl[15];
+
+	PARTS:
+	Clear(out = aih, out = ail);
+	PMult(ah = aih, al = ail, c = al[0], bh = bh, bl = bl, outh = ach1, outl = acl1, fh = mh1, fl = ml1);
+	PMult(ah = ach1, al = acl1, c = al[1], bh = mh1, bl = ml1, outh = ach2, outl = acl2, fh = mh2, fl = ml2);
+	PMult(ah = ach2, al = acl2, c = al[2], bh = mh2, bl = ml2, outh = ach3, outl = acl3, fh = mh3, fl = ml3);
+	PMult(ah = ach3, al = acl3, c = al[3], bh = mh3, bl = ml3, outh = ach4, outl = acl4, fh = mh4, fl = ml4);
+	PMult(ah = ach4, al = acl4, c = al[4], bh = mh4, bl = ml4, outh = ach5, outl = acl5, fh = mh5, fl = ml5);
+	PMult(ah = ach5, al = acl5, c = al[5], bh = mh5, bl = ml5, outh = ach6, outl = acl6, fh = mh6, fl = ml6);
+	PMult(ah = ach6, al = acl6, c = al[6], bh = mh6, bl = ml6, outh = ach7, outl = acl7, fh = mh7, fl = ml7);
+	PMult(ah = ach7, al = acl7, c = al[7], bh = mh7, bl = ml7, outh = ach8, outl = acl8, fh = mh8, fl = ml8);
+	PMult(ah = ach8, al = acl8, c = al[8], bh = mh8, bl = ml8, outh = ach9, outl = acl9, fh = mh9, fl = ml9);
+	PMult(ah = ach9, al = acl9, c = al[9], bh = mh9, bl = ml9, outh = ach10, outl = acl10, fh = mh10, fl = ml10);
+	PMult(ah = ach10, al = acl10, c = al[10], bh = mh10, bl = ml10, outh = ach11, outl = acl11, fh = mh11, fl = ml11);
+	PMult(ah = ach11, al = acl11, c = al[11], bh = mh11, bl = ml11, outh = ach12, outl = acl12, fh = mh12, fl = ml12);
+	PMult(ah = ach12, al = acl12, c = al[12], bh = mh12, bl = ml12, outh = ach13, outl = acl13, fh = mh13, fl = ml13);
+	PMult(ah = ach13, al = acl13, c = al[13], bh = mh13, bl = ml13, outh = ach14, outl = acl14, fh = mh14, fl = ml14);
+	PMult(ah = ach14, al = acl14, c = al[14], bh = mh14, bl = ml14, outh = ach15, outl = acl15, fh = mh15, fl = ml15);
+	
+	PMult(ah = ach15, al = acl15, c = ah[0], bh = mh15, bl = ml15, outh = ach16, outl = acl16, fh = mh16, fl = ml16);
+	PMult(ah = ach16, al = acl16, c = ah[1], bh = mh16, bl = ml16, outh = ach17, outl = acl17, fh = mh17, fl = ml17);
+	PMult(ah = ach17, al = acl17, c = ah[2], bh = mh17, bl = ml17, outh = ach18, outl = acl18, fh = mh18, fl = ml18);
+	PMult(ah = ach18, al = acl18, c = ah[3], bh = mh18, bl = ml18, outh = ach19, outl = acl19, fh = mh19, fl = ml19);
+	PMult(ah = ach19, al = acl19, c = ah[4], bh = mh19, bl = ml19, outh = ach20, outl = acl20, fh = mh20, fl = ml20);
+	PMult(ah = ach20, al = acl20, c = ah[5], bh = mh20, bl = ml20, outh = ach21, outl = acl21, fh = mh21, fl = ml21);
+	PMult(ah = ach21, al = acl21, c = ah[6], bh = mh21, bl = ml21, outh = ach22, outl = acl22, fh = mh22, fl = ml22);
+	PMult(ah = ach22, al = acl22, c = ah[7], bh = mh22, bl = ml22, outh = ach23, outl = acl23, fh = mh23, fl = ml23);
+	PMult(ah = ach23, al = acl23, c = ah[8], bh = mh23, bl = ml23, outh = ach24, outl = acl24, fh = mh24, fl = ml24);
+	PMult(ah = ach24, al = acl24, c = ah[9], bh = mh24, bl = ml24, outh = ach25, outl = acl25, fh = mh25, fl = ml25);
+	PMult(ah = ach25, al = acl25, c = ah[10], bh = mh25, bl = ml25, outh = ach26, outl = acl26, fh = mh26, fl = ml26);
+	PMult(ah = ach26, al = acl26, c = ah[11], bh = mh26, bl = ml26, outh = ach27, outl = acl27, fh = mh27, fl = ml27);
+	PMult(ah = ach27, al = acl27, c = ah[12], bh = mh27, bl = ml27, outh = ach28, outl = acl28, fh = mh28, fl = ml28);
+	PMult(ah = ach28, al = acl28, c = ah[13], bh = mh28, bl = ml28, outh = ach29, outl = acl29, fh = mh29, fl = ml29);
+	PMult(ah = ach29, al = acl29, c = ah[14], bh = mh29, bl = ml29, outh = ph, outl = pl);
+	
+}

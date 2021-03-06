@@ -1,0 +1,158 @@
+CHIP Truncate{
+	IN inh[15], inl[15];
+	OUT out[15];
+
+	PARTS:
+	
+	Clear(out = B0);
+	Inc15(in = B0, out = b0);
+	Mux15(a = b0, b = B0, sel = inh[14], out = B1);
+	Not(in = inh[14], out = nh0);
+	
+	Not(in = inh[13], out = nh1);
+	And(a = nh1, b = nh0, out = c1);
+	Inc15(in = B1, out = b1);
+	Mux15(a = B1, b = b1, sel = c1, out = B2);
+	
+	Not(in = inh[12], out = nh2);
+	And(a = nh2, b = c1, out = c2);
+	Inc15(in = B2, out = b2);
+	Mux15(a = B2, b = b2, sel = c2, out = B3);
+	
+	Not(in = inh[11], out = nh3);
+	And(a = nh3, b = c2, out = c3);
+	Inc15(in = B3, out = b3);
+	Mux15(a = B3, b = b3, sel = c3, out = B4);
+	
+	Not(in = inh[10], out = nh4);
+	And(a = nh4, b = c3, out = c4);
+	Inc15(in = B4, out = b4);
+	Mux15(a = B4, b = b4, sel = c4, out = B5);
+	
+	Not(in = inh[9], out = nh5);
+	And(a = nh5, b = c4, out = c5);
+	Inc15(in = B5, out = b5);
+	Mux15(a = B5, b = b5, sel = c5, out = B6);
+	
+	Not(in = inh[8], out = nh6);
+	And(a = nh6, b = c5, out = c6);
+	Inc15(in = B6, out = b6);
+	Mux15(a = B6, b = b6, sel = c6, out = B7);
+	
+	Not(in = inh[7], out = nh7);
+	And(a = nh7, b = c6, out = c7);
+	Inc15(in = B7, out = b7);
+	Mux15(a = B7, b = b7, sel = c7, out = B8);
+	
+	Not(in = inh[6], out = nh8);
+	And(a = nh8, b = c7, out = c8);
+	Inc15(in = B8, out = b8);
+	Mux15(a = B8, b = b8, sel = c8, out = B9);
+	
+	Not(in = inh[5], out = nh9);
+	And(a = nh9, b = c8, out = c9);
+	Inc15(in = B9, out = b9);
+	Mux15(a = B9, b = b9, sel = c9, out = B10);
+	
+	Not(in = inh[4], out = nh10);
+	And(a = nh10, b = c9, out = c10);
+	Inc15(in = B10, out = b10);
+	Mux15(a = B10, b = b10, sel = c10, out = B11);
+	
+	Not(in = inh[3], out = nh11);
+	And(a = nh11, b = c10, out = c11);
+	Inc15(in = B11, out = b11);
+	Mux15(a = B11, b = b11, sel = c11, out = B12);
+	
+	Not(in = inh[2], out = nh12);
+	And(a = nh12, b = c11, out = c12);
+	Inc15(in = B12, out = b12);
+	Mux15(a = B12, b = b12, sel = c12, out = B13);
+	
+	Not(in = inh[1], out = nh13);
+	And(a = nh13, b = c12, out = c13);
+	Inc15(in = B13, out = b13);
+	Mux15(a = B13, b = b13, sel = c13, out = B14);
+	
+	Not(in = inh[0], out = nh14);
+	And(a = nh14, b = c13, out = c14);
+	Inc15(in = B14, out = b14);
+	Mux15(a = B14, b = b14, sel = c14, out = B15);
+	
+	Not(in = inl[14], out = nh15);
+	And(a = nh15, b = c14, out = c15);
+	Inc15(in = B15, out = b15);
+	Mux15(a = B15, b = b15, sel = c15, out = B16);
+	
+	Not(in = inl[13], out = nh16);
+	And(a = nh16, b = c15, out = c16);
+	Inc15(in = B16, out = b16);
+	Mux15(a = B16, b = b16, sel = c16, out = B17);
+	
+	Not(in = inl[12], out = nh17);
+	And(a = nh17, b = c16, out = c17);
+	Inc15(in = B17, out = b17);
+	Mux15(a = B17, b = b17, sel = c17, out = B18);
+	
+	Not(in = inl[11], out = nh18);
+	And(a = nh18, b = c17, out = c18);
+	Inc15(in = B18, out = b18);
+	Mux15(a = B18, b = b18, sel = c18, out = B19);
+	
+	Not(in = inl[10], out = nh19);
+	And(a = nh19, b = c18, out = c19);
+	Inc15(in = B19, out = b19);
+	Mux15(a = B19, b = b19, sel = c19, out = B20);
+	
+	Not(in = inl[9], out = nh20);
+	And(a = nh20, b = c19, out = c20);
+	Inc15(in = B20, out = b20);
+	Mux15(a = B20, b = b20, sel = c20, out = B21);
+	
+	Not(in = inl[8], out = nh21);
+	And(a = nh21, b = c20, out = c21);
+	Inc15(in = B21, out = b21);
+	Mux15(a = B21, b = b21, sel = c21, out = B22);
+	
+	Not(in = inl[7], out = nh22);
+	And(a = nh22, b = c21, out = c22);
+	Inc15(in = B22, out = b22);
+	Mux15(a = B22, b = b22, sel = c22, out = B23);
+	
+	Not(in = inl[6], out = nh23);
+	And(a = nh23, b = c22, out = c23);
+	Inc15(in = B23, out = b23);
+	Mux15(a = B23, b = b23, sel = c23, out = B24);
+	
+	Not(in = inl[5], out = nh24);
+	And(a = nh24, b = c23, out = c24);
+	Inc15(in = B24, out = b24);
+	Mux15(a = B24, b = b24, sel = c24, out = B25);
+	
+	Not(in = inl[4], out = nh25);
+	And(a = nh25, b = c24, out = c25);
+	Inc15(in = B25, out = b25);
+	Mux15(a = B25, b = b25, sel = c25, out = B26);
+	
+	Not(in = inl[3], out = nh26);
+	And(a = nh26, b = c25, out = c26);
+	Inc15(in = B26, out = b26);
+	Mux15(a = B26, b = b26, sel = c26, out = B27);
+	
+	Not(in = inl[2], out = nh27);
+	And(a = nh27, b = c26, out = c27);
+	Inc15(in = B27, out = b27);
+	Mux15(a = B27, b = b27, sel = c27, out = B28);
+	
+	Not(in = inl[1], out = nh28);
+	And(a = nh28, b = c27, out = c28);
+	Inc15(in = B28, out = b28);
+	Mux15(a = B28, b = b28, sel = c28, out = B29);
+	
+	Not(in = inl[0], out = nh29);
+	And(a = nh29, b = c28, out = c29);
+	Inc15(in = B29, out = b29);
+	Mux15(a = B29, b = b29, sel = c29, out = B30);
+	
+	Subt31(ah = B0, bh = B0, bl = B30, al[0] = false, al[1] = true, al[2] = true, al[3] = true, al[4] = true, al[5] = false, al[6] = false, al[7] = false, al[8] = false, al[9] = false, al[10] = false, al[11] = false, al[12] = false, al[13] = false, al[14] = false, sl = out);
+}

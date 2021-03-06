@@ -1,0 +1,60 @@
+
+program calp;
+
+var
+	n : Integer;
+	a : Real;
+	b : Real;
+	res : Real;
+
+procedure menu; begin
+	n:= 6;
+	while (n>5) or (n<1) do begin
+		writeln('1. Suma');
+		writeln('2. Resta');
+		writeln('3. Multiplicación');
+		writeln('4. Division');
+		writeln('5. Salir');
+		read(n);
+	end;
+end;
+
+function suma (a,b : Real) : Real; begin
+	suma := a+b;
+end;
+function resta (a,b : Real) : Real; begin
+	resta := a-b;
+end;
+function multi (a,b : Real) : Real; begin
+	multi := a*b;
+end;
+function division (a,b : Real) : Real; begin
+	division := a/b;
+end;
+
+begin
+	writeln('5. Calculadora sencilla.');
+	writeln('  ');
+	menu;
+	while (n <> 5) do begin
+		writeln('Digite dos numeros');
+		read(a,b);
+		if (n = 1) then begin
+			res := suma(a,b);
+			writeln('Respuesta = ',res:00:02);
+		end;
+		if (n = 2) then begin
+			res := resta(a,b);
+			writeln('Respuesta = ',res:00:02);
+		end;
+		if (n = 3) then begin
+			res := multi(a,b);
+			writeln('Respuesta = ',res:00:02);
+		end;
+		if (n = 4) then begin
+			res := division(a,b);
+			writeln('Respuesta = ',res:00:02);
+		end;
+	menu;
+	end;
+end.

@@ -1,0 +1,9 @@
+CHIP Sign{
+	IN ah[15], al[15], T[15];
+	OUT out;
+
+	PARTS:
+	Mux16Way1(a = ah[0], b = ah[1], c = ah[2], d = ah[3], e = ah[4], f = ah[5], g = ah[6], h = ah[7], i = ah[8], j = ah[9], k = ah[10], l = ah[11], m = ah[12], n = ah[13], o = ah[14], p = ah[0], sel[0] = T[0], sel[1] = T[1], sel[2] = T[2], sel[3] = T[3], out = c21);
+	Mux16Way1(a = al[0], b = al[1], c = al[2], d = al[3], e = al[4], f = al[5], g = al[6], h = al[7], i = al[8], j = al[9], k = al[10], l = al[11], m = al[12], n = al[13], o = al[14], p = al[0], sel[0] = T[0], sel[1] = T[1], sel[2] = T[2], sel[3] = T[3], out = c22);
+	Mux(a = c22, b = c21, sel = T[4], out = out);
+}

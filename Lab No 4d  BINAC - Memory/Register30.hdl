@@ -1,0 +1,36 @@
+CHIP Register30{
+	IN inh[15],inl[15],w;
+	OUT outh[15],outl[15];
+
+	PARTS:
+	Bit(a = inh[0], w = w, out = outh[0]);
+	Bit(a = inl[0], w = w, out = outl[0]);
+	Bit(a = inh[1], w = w, out = outh[1]);
+	Bit(a = inl[1], w = w, out = outl[1]);
+	Bit(a = inh[2], w = w, out = outh[2]);
+	Bit(a = inl[2], w = w, out = outl[2]);
+	Bit(a = inh[3], w = w, out = outh[3]);
+	Bit(a = inl[3], w = w, out = outl[3]);
+	Bit(a = inh[4], w = w, out = outh[4]);
+	Bit(a = inl[4], w = w, out = outl[4]);
+	Bit(a = inh[5], w = w, out = outh[5]);
+	Bit(a = inl[5], w = w, out = outl[5]);
+	Bit(a = inh[6], w = w, out = outh[6]);
+	Bit(a = inl[6], w = w, out = outl[6]);
+	Bit(a = inh[7], w = w, out = outh[7]);
+	Bit(a = inl[7], w = w, out = outl[7]);
+	Bit(a = inh[8], w = w, out = outh[8]);
+	Bit(a = inl[8], w = w, out = outl[8]);
+	Bit(a = inh[9], w = w, out = outh[9]);
+	Bit(a = inl[9], w = w, out = outl[9]);
+	Bit(a = inh[10], w = w, out = outh[10]);
+	Bit(a = inl[10], w = w, out = outl[10]);
+	Bit(a = inh[11], w = w, out = outh[11]);
+	Bit(a = inl[11], w = w, out = outl[11]);
+	Bit(a = inh[12], w = w, out = outh[12]);
+	Bit(a = inl[12], w = w, out = outl[12]);
+	Bit(a = inh[13], w = w, out = outh[13]);
+	Bit(a = inl[13], w = w, out = outl[13]);
+	Bit(a = inh[14], w = w, out = outh[14]);
+	Bit(a = inl[14], w = w, out = outl[14]);
+}

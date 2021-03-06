@@ -1,0 +1,25 @@
+CHIP PDiv{
+	IN Mh[15], Ml[15], Qih[15], Qil[15], Aih[15], Ail[15], T[15];
+	OUT Qh[15], Ql[15], Ah[15], Al[15];
+
+	PARTS:
+	ShiftL(ah = Qih, al = Qil, sh = Qh1, sl = ql);
+	ShiftL(ah = Aih, al = Ail, sh = rh, sl = rl0);
+	Sign(ah = rh, al = rl0, out = singR, T = T);
+	Sign(ah = Qh1, al = ql, out = singQ, T = T);
+	Inc15(in = rl0, out = rl1);
+	Mux15(a = rl0, b = rl1, sel = singQ, out = rl);
+	
+	Subt31(ah = rh, al = rl, bh = Mh, bl = Ml, sh = Ah0, sl = Al0);
+	Add31(ah = rh, al = rl, bh = Mh, bl = Ml, sh = Ah1, sl = Al1);
+	
+	Mux15(a = Ah0, b = Ah1, sel = singR, out = Aha1, out = tmph);
+	Mux15(a = Al0, b = Al1, sel = singR, out = Ala1, out = tmpl);
+	
+	Sign(ah = tmph, al = tmpl, out = singA, T = T);
+	Inc15(in = ql, out = ql1);
+	Mux15(a = ql1, b = ql, sel = singA, out = Ql1);
+	
+	Ans(inh = Qh1, inl = Ql1, addr = T, sh = Qh, sl = Ql, sl = chh);
+	Ans(inh = Aha1, inl = Ala1, addr = T, sh = Ah, sl = Al, sl = chl);
+}

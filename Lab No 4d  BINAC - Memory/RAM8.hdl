@@ -1,0 +1,28 @@
+CHIP RAM8{
+	IN inh[15],inl[15],sel[3],w;
+	OUT outh[15],outl[15];
+
+	PARTS:
+	DMux8Way(in = true, sel = sel, a = c0, b = c1, c = c2, d = c3, e = c4, f = c5, g = c6, h = c7);
+
+	And(a = w, b = c0, out = w0);
+	And(a = w, b = c1, out = w1);
+	And(a = w, b = c2, out = w2);
+	And(a = w, b = c3, out = w3);
+	And(a = w, b = c4, out = w4);
+	And(a = w, b = c5, out = w5);
+	And(a = w, b = c6, out = w6);
+	And(a = w, b = c7, out = w7);
+
+	Register30(inh = inh, inl = inl, w = w0, outh = outh1, outl = outl1);
+	Register30(inh = inh, inl = inl, w = w1, outh = outh2, outl = outl2);
+	Register30(inh = inh, inl = inl, w = w2, outh = outh3, outl = outl3);
+	Register30(inh = inh, inl = inl, w = w3, outh = outh4, outl = outl4);
+	Register30(inh = inh, inl = inl, w = w4, outh = outh5, outl = outl5);
+	Register30(inh = inh, inl = inl, w = w5, outh = outh6, outl = outl6);
+	Register30(inh = inh, inl = inl, w = w6, outh = outh7, outl = outl7);
+	Register30(inh = inh, inl = inl, w = w7, outh = outh8, outl = outl8);
+
+	Mux8Way15(a = outh1, b = outh2, c = outh3, d = outh4, e = outh5, f = outh6, g = outh7, h = outh8, sel = sel, out = outh);
+	Mux8Way15(a = outl1, b = outl2, c = outl3, d = outl4, e = outl5, f = outl6, g = outl7, h = outl8, sel = sel, out = outl);
+}
